@@ -1,6 +1,7 @@
+import { VueConstructor } from 'vue'
 import VueScreenSizeMixin from './vue-screen-size'
 
-const install = (Vue) => {
+const install = (Vue: VueConstructor) => {
     Vue.mixin(VueScreenSizeMixin)
 }
 
