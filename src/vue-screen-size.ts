@@ -36,7 +36,7 @@ class VueScreenSizeMixin extends Vue {
             || document.body.clientHeight
     }
 
-    handleResize(event: UIEvent) {
+    handleResize(event: UIEvent = null) {
         reactiveComponent.event = event;
         reactiveComponent.vssWidth = this.getScreenWidth();
         reactiveComponent.vssHeight = this.getScreenHeight();
@@ -47,6 +47,7 @@ class VueScreenSizeMixin extends Vue {
     }
 
     mounted() {
+        this.handleResize(); // Calculate now
         window.addEventListener('resize', this.handleResize)
     }
 
