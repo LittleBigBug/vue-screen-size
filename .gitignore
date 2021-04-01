@@ -5,7 +5,3 @@ package-lock.json
 
 yarn.lock
 yarn-error.log
-
-# Built files
-dist/
-docs/
