@@ -30,7 +30,7 @@ class VueScreenSizeMixin extends Vue {
             || document.body.clientWidth
     }
 
-    getScreenHeight() {
+    getScreenHeight(): number {
         return window.innerHeight
             || document.documentElement.clientHeight
             || document.body.clientHeight
