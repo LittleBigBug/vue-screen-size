@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johndatserakis/vue-screen-size.git"
+    "url": "git+https://github.com/LittleBigBug/vue-screen-size.git"
   },
   "bugs": {
     "url": "https://github.com/johndatserakis/vue-screen-size/issues"
