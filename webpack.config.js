@@ -1,9 +1,9 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-  entry: './example/main.js',
+  entry: './example/main.ts',
   output: {
     path: path.resolve(__dirname, './docs'),
     publicPath: (process.env.NODE_ENV === 'development') ? '/' : '/vue-screen-size/',
@@ -57,7 +57,7 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
@@ -74,7 +74,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.ts', '.js', '.vue', '.json']
   },
   devServer: {
     historyApiFallback: true,
@@ -84,32 +84,16 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map',
+  devtool: 'eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'vue-screen-size',
       template: './example/index.html'
-    })
+    }),
+    new VueLoaderPlugin(),
   ]
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
+  module.exports.devtool = 'source-map'
 }

@@ -15,7 +15,8 @@
         "strictNullChecks": false,
         "baseUrl": ".",
         "types": [
-            "webpack-env"
+            "webpack-env",
+            "jest"
         ],
         "paths": {
             "@/*": [
@@ -26,16 +27,15 @@
             "esnext",
             "dom",
             "dom.iterable",
-            "scripthost",
-            "tslib"
+            "scripthost"
         ]
     },
     "include": [
         "src/**/*.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "tests/**/*.ts",
-        "tests/**/*.tsx"
+        "test/**/*.ts",
+        "test/**/*.tsx"
     ],
     "exclude": [
         "node_modules"

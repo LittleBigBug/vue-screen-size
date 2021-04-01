@@ -56,16 +56,13 @@
     </div>
 </template>
 
-<script>
-    import VueScreenSize from '../src/index.js'
+<script lang="ts">
+    import { Component, Mixins } from 'vue-property-decorator';
+    import VueScreenSize from '../src/vue-screen-size'
 
-    export default {
-        name: 'app',
-        mixins: [VueScreenSize.VueScreenSizeMixin],
-        data () {
-            return {
-            }
-        }
+    @Component
+    export default class VueScreenSizeDemoTS extends Mixins(VueScreenSize) {
+        name = 'app'
     }
 </script>
 
@@ -81,14 +78,12 @@
     body {
         margin: 0;
         height: 100%;
-        height: 100vh;
         width: 100%;
         font-family: 'Noto Sans', sans-serif;
     }
 
     #app {
         height: 100%;
-        height: 100vh;
         width: 100%;
         line-height: 1.5;
     }

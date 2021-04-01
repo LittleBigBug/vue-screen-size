@@ -1,12 +1,19 @@
 {
+    "plugins": [
+        [
+            "@babel/plugin-proposal-decorators", { "legacy": true }
+        ]
+    ],
     "presets": [
-        ["env", { "modules": false }],
+        ["@babel/preset-env", { "modules": false }],
+        "@babel/preset-typescript",
         "stage-3"
     ],
     "env": {
         "test": {
             "presets": [
-                ["env", { "targets": { "node": "current" }}]
+                ["@babel/preset-env", { "targets": { "node": "current" }}],
+                "@babel/preset-typescript"
             ]
         }
     }
