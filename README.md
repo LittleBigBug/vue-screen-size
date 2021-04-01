@@ -1,6 +1,6 @@
-# vue-screen-size
+# vue-screen-size-ts
 
-Get easy and reactive access to the width and height of your screen.
+Get easy and reactive access to the width and height of your screen. (But now in Typescript)
 
 <p align="left">
   <a href="https://www.npmjs.com/package/vue-screen-size"><img src="https://img.shields.io/npm/v/vue-screen-size.svg" alt="NPM Version"></a>
@@ -68,13 +68,28 @@ export default {
 
 // Access `this.$vssWidth`, `this.$vssHeight`, and `this.$vssEvent` in your component.
 ```
+
+Equivalent Typescript:
+```typescript
+import { Mixins } from 'vue-property-decorator'
+
+@Component
+export default class MyComponent extends Mixins(VueScreenSize.VueScreenSizeMixin) {
+  name = 'Cool Component'
+
+  myMethod() {
+    const w = this.$vssWidth
+    const h = this.$vssHeight
+  }
+}
+```
 ### Variables
 
 | name | type | description |
 |--------|------------|-------------|
 | $vssWidth | Number | The width of your screen |
 | $vssHeight | Number | The height of your screen |
-| $vssEvent | Object | The event object data from the resizing event. |
+| $vssEvent | UIEvent | The event object data from the resizing event. |
 
 ### Methods
 
@@ -87,21 +102,32 @@ export default {
 ```bash
 # install dependencies
 npm install
+# or yarn (recommended)
+yarn
 
 # serve with hot reload
 npm run watch
+yarn watch
 
 # run the tests
 npm run test
+yarn test
 
 # build demo page
 npm run build:example
+yarn build:example
 
-# build
+# build library
+npm run build:library
+yarn build:library
+
+# both
 npm run build
+yarn build
 
 # publish to npm
 npm publish
+yarn publish
 ```
 
 ### Other
@@ -111,5 +137,3 @@ Go ahead and fork the project! Submit an issue if needed. Have fun!
 ### License
 
 [MIT](http://opensource.org/licenses/MIT)
-
-Packaged with a mixture of [vue-lib-template](https://github.com/biigpongsatorn/vue-lib-template) and [vue-sfc-rollup](https://github.com/team-innovation/vue-sfc-rollup).
